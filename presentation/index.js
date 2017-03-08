@@ -160,7 +160,7 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide>
-          <Heading>Living Coding!</Heading>
+          <Heading>Live Coding!</Heading>
         </Slide>
       </Deck>
     );
