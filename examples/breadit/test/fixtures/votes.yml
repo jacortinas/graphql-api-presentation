@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  direction: 1
+  user: one
+  post: one
+
+two:
+  direction: 1
+  user: two
+  post: two

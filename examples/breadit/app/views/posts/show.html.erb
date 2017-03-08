@@ -1,0 +1,17 @@
+<%= link_to '<- Back to Posts', root_path %>
+
+<h2><%= @post.title %></h2>
+
+<p><strong>Author:</strong> <%= link_to @post.user.username, @post.user %></p>
+
+<p><%= @post.description %></p>
+
+<h4>Comments (<%= @post.comments.count %>)</h4>
+<ul>
+  <% @post.comments.each do |comment| %>
+    <li>
+      <em><% comment.user.username %></em>
+      <p><%= comment.body %></p>
+    </li>
+  <% end %>
+</ul>

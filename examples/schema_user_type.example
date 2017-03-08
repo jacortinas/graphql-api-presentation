@@ -1,0 +1,8 @@
+UserType = GraphQL::ObjectType.define do
+  name "User"
+  description "A User"
+  field :id, !types.ID
+  field :username, !types.String
+  field :posts, types[PostType]
+  field :comments, types[CommentType]
+end

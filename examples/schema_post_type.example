@@ -1,0 +1,17 @@
+PostType = GraphQL::ObjectType.define do
+  name "Post"
+  description "An awesome post"
+  field :id, !types.ID
+  field :title, !types.String
+  field :url, !types.String
+  field :description, !types.String
+  field :score, !types.Int
+  field :author do
+    type !UserType
+    resolve -> (obj, args, ctx) { obj.user }
+  end
+  field :comments do
+    type types[CommentType]
+    resolve -> (obj, args, ctx) { obj.comments }
+  end
+end

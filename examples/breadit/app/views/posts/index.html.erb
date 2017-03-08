@@ -1,0 +1,17 @@
+<h1>Posts</h1>
+<ul>
+  <% @posts.each do |post| %>
+    <li>
+      <p><strong><%= link_to post.title, post %></strong></p>
+      <p>Author: <em><%= link_to post.user.username, post.user %></em></p>
+      <p>Description: <%= post.description %></p>
+      <p class="js-post-voting">
+        Score: <span class="js-post-score"><%= post.score %></span>
+        &middot;
+        <%= link_to 'Upvote', upvote_post_path(post, format: :json), method: :post, remote: true, data: { direction: 1 } %>
+        &middot;
+        <%= link_to 'Downvote', downvote_post_path(post, format: :json), method: :post, remote: true, data: { direction: -1 } %>
+      </p>
+    </li>
+  <% end %>
+</ul>

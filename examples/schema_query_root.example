@@ -1,0 +1,24 @@
+QueryRoot = GraphQL::ObjectType.define do
+  name "Query"
+  description "The query root for this schema"
+
+  field :posts, types[PostType] do
+    resolve ->(obj, args, ctx) {
+      Post.all
+    }
+  end
+
+  field :post, PostType do
+    argument :id, !types.ID
+    resolve -> (obj, args, ctx) {
+      Post.find(args[:id])
+    }
+  end
+
+  field :user, UserType do
+    argument :username, !types.String
+    resolve -> (obj, args, ctx) {
+      User.find_by(username: args[:username])
+    }
+  end
+end
